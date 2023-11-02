@@ -1,0 +1,86 @@
+{
+  // * tracking status
+  "TRS": {
+    "Lat": [12.916383],
+    "Lon": [77.634651],
+    "Alt": [0], // altitude in meters
+    "AX": [0],
+    "AY": [0],
+    "AZ": [0],
+    "Sats": 0, // satellites
+    "Mode": 0, // 0 -> ICE Mode, 1 -> EV Mode
+    "LA": 0, // SoC of LA Battery
+    "Ign": 1, // ignition (0 -> ON; 1 -> OFF)
+    "FG": 30, // fuel gauge in percent
+    "ATS": 0, // anti theft status
+    "Spd": [0] // speed in km/hr
+  },
+  // * driver status
+  "DS": [
+    55, // internal temp
+    0, // motor Id
+    3000, // abs motor speed
+    35, // motor current
+    52.5, // motor voltage
+    62 // motor temperature
+  ],
+  // * battery status
+  "BS": {
+    "SOC": 0,
+    "SOH": 100,
+    "Cycles": 30,
+    "I": 0, // current
+    "V": 0, // voltage
+    "Charging": 0,
+    "DAH": 3000, // DesignedAH
+    "DWH": 3000, // DesignedWH
+    "RAH": 2961, // RemainingAH
+    "RWH": 2961, // RemainingWH
+    "Series": 16, // CellCount
+    "CBS": 1, // cell balancing state
+    // * temperature
+    "Temp": [
+      3050, // T1
+      3014, // T2
+      3014, // T3
+      3012, // T4
+      4871, // M1
+      4871 // M2
+    ],
+    // * cell voltages
+    "CV": [
+      4161, // Cell1 Voltage
+      4161, // Cell2 Voltage
+      4156, // Cell3 Voltage
+      4155, // Cell4 Voltage
+      4159, // Cell5 Voltage
+      4157, // Cell6 Voltage
+      4157, // Cell7 Voltage
+      4156, // Cell8 Voltage
+      4158, // Cell9 Voltage
+      4163, // Cell10 Voltage
+      4162, // Cell11 Voltage
+      4166, // Cell12 Voltage
+      4164, // Cell13 Voltage
+      4163, // Cell14 Voltage
+      4163, // Cell15 Voltage
+      4162 // Cell16 Voltage
+    ],
+    "Faults": [
+      1, // Cell Over Voltage
+      1, // Cell Under Voltage
+      1, // Pack Over Voltage
+      1, // Pack Under Voltage
+      1, // Over Current
+      1, // Under Current
+      1, // Short Circuit
+      1, // Mosfet Over Temperature
+      1, // Discharge Mosfet Over Temperature
+      1, // Charge Mosfet Over Temperature
+      1 // Environmental Over Temperature
+    ]
+  }
+}
+// * Refined Topic Name: GT_IoT/Publish/<DEV/PROD>/VehicleData/<deviceId>/<int>/<timestamp>
+// * old SELECT *, upper(topic(3)) as ENV FROM 'GT_IoT/Publish/#'
+// * new SELECT *, upper(topic(3)) as ENV, topic(5) as DId, topic(6) as int, topic(7) as TS FROM 'GT_IoT/Publish/#'
